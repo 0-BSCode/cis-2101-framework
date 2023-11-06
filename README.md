@@ -2,7 +2,7 @@
 This repository provides a framework that you can use to deliberately practice implementing data structures.
 
 # Quickstart
-## Instructions (File Structure 1)
+## Instructions (File Structure 1 - DSA Definition and Implementation)
 1. Copy-paste one of the provided directories under `boilerplate`
 2. Change the name of the directory into the name of the data structure you wish to practice implementing (e.g. `data-structure-1` to `binary-search-tree`)
 3. Under the `_header.h` file in the `implementation-[number]` directory, place the structure definition and operations
@@ -11,7 +11,7 @@ This repository provides a framework that you can use to deliberately practice i
 6. Should you wish to practice the same implementation again, create another folder under the same `implementation` directory and call it `v-[number]`, where `number` is your nth attempt to implement the data structure with the aforementioned implementation.
 7. Redo steps 3-5. If the output for this new attempt isn't the same as that of the previous attempts, then refactor the new attempt until the output is the same (no need to rewrite tests!!)
 
-## Instructions (File Structure 2)
+## Instructions (File Structure 2 - DSA Implementation Only)
 1. Copy-paste one of the provided directories under `boilerplate`
 2. Change the name of the directory into the name of the data structure you wish to practice implementing (e.g. `data-structure-1` to `binary-search-tree`)
 3. Under the `_header.h` file in the `implementation-[number]` directory, place the structure definition and operations
@@ -54,7 +54,6 @@ Basing it off the boilerplate provided under `boilerplate/data-structure-1`, the
 ## Introduction
 Deliberate practice is a learning technique wherein one focuses on improving a specific aspect of the skill they're trying to learn. They go into the practice session knowing what they need to improve and how to improve it. This repo provides a framework that allows one to perform deliberate practice in the context of data structures and algorithms.
 
-
 The go-to method of learning how to implement data structures and algorithms is to...implement data structures and algorithms. However, when practicing this, there are a lot more steps than meets the eye. For example, when trying to implement a linked list, one normally creates a C file and starts coding right away. However, besides just writing the definition of a linked list and implementing the different operations, the student has to also do other things such as:
 
 - Importing the necessary libraries
@@ -69,7 +68,7 @@ The main goal of this repository is to allow students to focus more on implement
 
 
 # File Structure
-There are two file structures proposed in this repo, both of which can be found in the `boilerplate/` directory. The common elements present arer as follows:
+There are two file structures proposed in this repo, both of which can be found in the `boilerplate/` directory. The common elements present are as follows:
 
 - `data-structure-[number]/` - The directory, labelled according to the name of the data structure you wish to practice, containing all the code for that data structure
 - `main.c` - The main file where your code is to be executed. Here is where you define your tests for each implementation you have to verify that it works.
@@ -119,6 +118,10 @@ Under the `implementation-[number]` folder, you can see a number of folders foll
 ```
 
 Under the `implementation-[number]` folder, you can see a single `_header.h` file along with multiple other c files with the format `def-[number].c`. In this file structure, you can focus more on implementing the operations behind each data structure instead of having to redefine the structure in each version (unlike file structure 1 above).
+
+## Conclusion
+
+As was hopefully demonstrated, the proposed file structures allow you to focus on actually practice implementing data structures, instead of using up time on unnecessary overhead. As you can see, having the `main.c` file contain only the tests, instead of code for each implementation, allows you to test new implementation by simply replacing the import statement (i.e. the tests are implementation-agnostic). By drilling down the focus of your practice sessions to implementing data structures and algorithms, not only will your implementations be more optimized, but hopefully your grades as well 😉 Happy coding!
 
 ### TODOS
 1. Check if version number is necessary in `#ifndef`
