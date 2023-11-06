@@ -119,3 +119,7 @@ Under the `implementation-[number]` folder, you can see a number of folders foll
 ```
 
 Under the `implementation-[number]` folder, you can see a single `_header.h` file along with multiple other c files with the format `def-[number].c`. In this file structure, you can focus more on implementing the operations behind each data structure instead of having to redefine the structure in each version (unlike file structure 1 above).
+
+### TODOS
+1. Check if version number is necessary in `#ifndef`
+2. Add more examples
