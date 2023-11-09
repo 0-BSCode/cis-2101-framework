@@ -123,6 +123,11 @@ Under the `implementation-[number]` folder, you can see a single `_header.h` fil
 
 As was hopefully demonstrated, the proposed file structures allow you to focus on actually practice implementing data structures, instead of using up time on unnecessary overhead. As you can see, having the `main.c` file contain only the tests, instead of code for each implementation, allows you to test new implementation by simply replacing the import statement (i.e. the tests are implementation-agnostic). By drilling down the focus of your practice sessions to implementing data structures and algorithms, not only will your implementations be more optimized, but hopefully your grades as well 😉 Happy coding!
 
-### TODOS
+## Other Study Techniques
+
+1. [Pomodoro Technique](https://todoist.com/productivity-methods/pomodoro-technique)
+2. [Spaced Repetition](https://e-student.org/spaced-repetition/)
+3. [Interleaving](https://psychology.ucsd.edu/undergraduate-program/undergraduate-resources/academic-writing-resources/effective-studying/other-learning-techniques.html#:~:text=Interleaved%20practice%20%E2%80%93%20when%20you%20are,B%20on%20the%20next%2C%20you)
+
+## TODOS
 1. Check if version number is necessary in `#ifndef`
-2. Add more examples
