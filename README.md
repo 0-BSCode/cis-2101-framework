@@ -131,3 +131,4 @@ As was hopefully demonstrated, the proposed file structures allow you to focus o
 
 ## TODOS
 1. Check if version number is necessary in `#ifndef`
+2. Flesh out study techniques here w/ concrete examples
