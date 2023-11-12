@@ -56,12 +56,12 @@ void delete(BST *B, char elem) {
             *trav = temp->LC;
             free(temp);
         } else {
-            BST *successor;
-            for (successor = &(*trav)->LC; (*successor)->RC != NULL; successor = &(*successor)->RC) {}
+            BST *predecessor;
+            for (predecessor = &(*trav)->LC; (*predecessor)->RC != NULL; predecessor = &(*predecessor)->RC) {}
 
-            temp = *successor;
+            temp = *predecessor;
             (*trav)->data = temp->data;
-            *successor = temp->LC;
+            *predecessor = temp->LC;
             free(temp);
         }
     }
