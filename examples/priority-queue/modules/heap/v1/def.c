@@ -22,6 +22,7 @@ int deleteMin(HEAP *H) {
     if (H->lastNdx > -1) {
         res = H->Elem[0];
         H->Elem[0] = H->Elem[H->lastNdx];
+        H->Elem[H->lastNdx] = res;
         H->lastNdx--;
         minHeapify(H, 0);
     }
@@ -59,4 +60,27 @@ void displayHeap(HEAP H) {
         printf("%d ", H.Elem[ctr]);
     }
     printf("]\n");
+}
+
+void insertList(HEAP *H, int elem) {
+    if (H->lastNdx < MAX - 1) {
+        H->lastNdx++;
+        H->Elem[H->lastNdx] = elem;
+    }
+}
+void buildMinHeap(HEAP *H) {
+    int idx;
+    for (idx = (H->lastNdx - 1) / 2; idx >= 0; idx--) {
+        minHeapify(H, idx);
+    }
+}
+
+void heapSort(HEAP *H) {
+    int len = H->lastNdx, idx;
+
+    for (idx = H->lastNdx; idx >= 0; idx--) {
+        deleteMin(H);
+    }
+
+    H->lastNdx = len;
 }

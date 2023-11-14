@@ -1,4 +1,4 @@
-#include "modules/heap/v2/_header.h"
+#include "modules/heap/v1/_header.h"
 
 int main() {
     HEAP H;
@@ -20,4 +20,24 @@ int main() {
 
     makeNull(&H);
     displayHeap(H);
+
+    HEAP list;
+    initialize(&list);
+    insertList(&list, 7);
+    insertList(&list, 5);
+    insertList(&list, 4);
+    insertList(&list, 3);
+    insertList(&list, 6);
+    insertList(&list, 2);
+    insertList(&list, 1);
+    insertList(&list, 8);
+    insertList(&list, 1);
+
+    displayHeap(list);
+
+    buildMinHeap(&list);
+    displayHeap(list);
+
+    heapSort(&list);
+    displayHeap(list);
 }
