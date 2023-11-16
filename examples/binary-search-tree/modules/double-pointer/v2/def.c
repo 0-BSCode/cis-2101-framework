@@ -34,7 +34,7 @@ bool isMember(BST B, char elem) {
         return isMember(B->LC, elem);
     }
 }
-// TODO: Make recursive
+
 void delete(BST *B, char elem) {
     BST *trav = B, temp;
 
