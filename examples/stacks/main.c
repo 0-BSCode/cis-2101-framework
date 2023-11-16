@@ -1,4 +1,4 @@
-#include "modules/cursor-based/v1/_header.h"
+#include "modules/array/v3/_header.h"
 #include <stdio.h>
 
 int main() {
@@ -10,7 +10,6 @@ int main() {
     push('O', &S);
     push('O', &S);
     push('B', &S);
-    // push('Y', &S);
     insertBottom('Y', &S);
 
     displayStack(&S);

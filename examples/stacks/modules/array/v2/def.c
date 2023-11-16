@@ -20,7 +20,7 @@ void pop(STACK *SP) {
 }
 
 char top(STACK S) {
-    int res = -1;
+    char res = -1;
 
     if (!isEmpty(S)) {
         res = S.data[S.top];
