@@ -20,9 +20,11 @@ void insertFront(char elem, QUEUE *QP) {
 
     for (; !isEmpty(*QP); enqueue(front(*QP), &temp), dequeue(QP)) {}
     
-    enqueue(elem, QP);
+    enqueue(elem, &temp);
 
     for (; !isEmpty(temp); enqueue(front(temp), QP), dequeue(&temp)) {}
+
+    *QP = temp;
 }
 
 void insertAtPos(int pos, char elem, QUEUE *QP) {

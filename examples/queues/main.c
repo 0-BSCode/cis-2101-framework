@@ -1,4 +1,4 @@
-#include "modules/array/v2/_header.h"
+#include "modules/linked-list/v3/_header.h"
 #include <stdio.h>
 
 int main() {
@@ -20,7 +20,7 @@ int main() {
 
     insertAtPos(3, 'Z', &Q);
 
-    // dequeue(&Q);
+    dequeue(&Q);
     displayList(&Q);
 
     printf("Top: %c\n", front(Q));

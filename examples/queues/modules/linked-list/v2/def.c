@@ -50,7 +50,9 @@ void insertPos(int pos, char elem, QUEUE *QP) {
 
         for (ctr = 0; ctr < pos && !isEmpty(*QP); ctr++, enqueue(front(*QP), &temp), dequeue(QP)) {}
         enqueue(elem, QP);
-        for (; !isEmpty(temp); enqueue(front(temp), QP), dequeue(&temp)) {}
+        for (; !isEmpty(*QP); enqueue(front(*QP), &temp), dequeue(QP)) {}
+
+        *QP = temp;
     }
 }
 
