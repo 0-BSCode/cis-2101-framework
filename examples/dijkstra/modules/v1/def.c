@@ -1,0 +1,54 @@
+#include "_header.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+int* dijkstra(MATRIX matrix, int src) {
+    // Initialize costs
+    int *cost = (int *)calloc(MAX, sizeof(int));
+    int ctr;
+
+    for (ctr = 0; ctr < MAX; ctr++) {
+        cost[ctr] = ctr == src ? 0 : INF;
+    }
+
+    // Initialize set to track visited nodes
+    int *visited = (int *)calloc(MAX, sizeof(int));
+    visited[src] = 1;
+    
+    int currTail, head, nextTail, currCost, minCost;
+    for (currTail = src, nextTail = (src + 1) % MAX, minCost = INF; visited[nextTail] != 1; currTail = nextTail, minCost = INF, visited[nextTail] = 1) {
+        for (head = 0; head < MAX; head++) {
+            currCost = cost[currTail] + matrix[currTail][head];
+            cost[head] = currCost < cost[head] ? currCost : cost[head];
+            
+            if (cost[head] < minCost && visited[head] == 0) {
+                nextTail = head;
+                minCost = currCost;
+            }
+        }
+    }
+
+    return cost;
+}
+
+void printMatrix(MATRIX matrix) {
+    int i, j;
+
+    printf("\n----- MATRIX -----\n");
+    for (i = 0; i < MAX; i++) {
+        printf("[ ");
+        for (j = 0; j < MAX; j++) {
+            printf("%15d ", matrix[i][j]);
+        }
+        printf("]\n");
+    }
+}
+void printArray(int* array) {
+    int i;
+    printf("\n----- ARRAY -----\n");
+    printf("[ ");
+    for (i = 0; i < MAX; i++) {
+        printf("%15d ", array[i]);
+    }
+    printf("]\n");
+}
