@@ -36,6 +36,7 @@ int main() {
     displayHeap(list);
 
     buildMinHeap(&list);
+    // insertAll(&list);
     displayHeap(list);
 
     heapSort(&list);

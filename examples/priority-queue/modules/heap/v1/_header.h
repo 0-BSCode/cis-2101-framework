@@ -19,5 +19,6 @@ void displayHeap(HEAP H);
 // Unsorted List Helper Functions
 void insertList(HEAP *H, int elem);
 void buildMinHeap(HEAP *H);
+void insertAll(HEAP *H);
 void heapSort(HEAP *H);
 #endif

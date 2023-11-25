@@ -75,6 +75,15 @@ void buildMinHeap(HEAP *H) {
     }
 }
 
+void insertAll(HEAP *H) {
+    int last = H->lastNdx, idx;
+    H->lastNdx = -1;
+
+    for (idx = 0; idx <= last; idx++) {
+        insert(H, H->Elem[idx]);
+    }
+}
+
 void heapSort(HEAP *H) {
     int len = H->lastNdx, idx;
 
