@@ -13,17 +13,22 @@ int* dijkstra(MATRIX matrix, int src) {
 
     // Initialize set to track visited nodes
     int *visited = (int *)calloc(MAX, sizeof(int));
-    visited[src] = 1;
     
     int currTail, head, nextTail, currCost, minCost;
-    for (currTail = src, nextTail = (src + 1) % MAX, minCost = INF; visited[nextTail] != 1; currTail = nextTail, minCost = INF, visited[nextTail] = 1) {
+    for (currTail = src, nextTail = src, minCost = INF; visited[currTail] != 1; currTail = nextTail, minCost = INF) {
+        visited[currTail] = 1;
         for (head = 0; head < MAX; head++) {
-            currCost = cost[currTail] + matrix[currTail][head];
+            // Prevent integer overflows
+            if (cost[currTail] != INF && matrix[currTail][head] != INF) {
+                currCost = cost[currTail] + matrix[currTail][head];
+            } else {
+                currCost = INF;
+            }
             cost[head] = currCost < cost[head] ? currCost : cost[head];
             
             if (cost[head] < minCost && visited[head] == 0) {
                 nextTail = head;
-                minCost = currCost;
+                minCost = cost[head];
             }
         }
     }
