@@ -33,8 +33,8 @@ int main() {
         {INF, INF, 1, INF, INF}
      };
 
-    printMatrix(matrix3);
-    int *minCosts = dijkstra(matrix3, 0);
+    printMatrix(matrix);
+    int *minCosts = dijkstra(matrix, 0);
 
     printArray(minCosts);
 

@@ -5,30 +5,33 @@
 int* dijkstra(MATRIX matrix, int src) {
     // Initialize costs
     int *cost = (int *)calloc(MAX, sizeof(int));
-    int ctr;
-
-    for (ctr = 0; ctr < MAX; ctr++) {
-        cost[ctr] = ctr == src ? 0 : INF;
-    }
 
     // Initialize set to track visited nodes
     int *visited = (int *)calloc(MAX, sizeof(int));
     
-    int currTail, head, nextTail, currCost, minCost;
-    for (currTail = src, nextTail = src, minCost = INF; visited[currTail] != 1; currTail = nextTail, minCost = INF) {
-        visited[currTail] = 1;
-        for (head = 0; head < MAX; head++) {
-            // Prevent integer overflows
-            if (cost[currTail] != INF && matrix[currTail][head] != INF) {
-                currCost = cost[currTail] + matrix[currTail][head];
-            } else {
-                currCost = INF;
-            }
-            cost[head] = currCost < cost[head] ? currCost : cost[head];
-            
-            if (cost[head] < minCost && visited[head] == 0) {
-                nextTail = head;
-                minCost = cost[head];
+    if (cost != NULL && visited != NULL) {
+        int ctr;
+
+        for (ctr = 0; ctr < MAX; ctr++) {
+            cost[ctr] = ctr == src ? 0 : INF;
+        }
+
+        int currTail, head, nextTail, currCost, minCost;
+        for (currTail = src, nextTail = src, minCost = INF; visited[currTail] != 1; currTail = nextTail, minCost = INF) {
+            visited[currTail] = 1;
+            for (head = 0; head < MAX; head++) {
+                // Prevent integer overflows
+                if (cost[currTail] != INF && matrix[currTail][head] != INF) {
+                    currCost = cost[currTail] + matrix[currTail][head];
+                } else {
+                    currCost = INF;
+                }
+                cost[head] = currCost < cost[head] ? currCost : cost[head];
+                
+                if (cost[head] < minCost && visited[head] == 0) {
+                    nextTail = head;
+                    minCost = cost[head];
+                }
             }
         }
     }

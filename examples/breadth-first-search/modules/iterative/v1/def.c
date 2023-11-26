@@ -5,11 +5,11 @@
 
 int* BFS(MATRIX matrix, int src) {
     int* res = (int*)malloc(MAX * sizeof(int));
-    
-    if (res != NULL) {
+    int *visited = (int*)calloc(MAX, sizeof(int));
+
+    if (res != NULL && visited != NULL) {
         QUEUE queue;
         initialize(&queue);
-        int *visited = (int*)calloc(MAX, sizeof(int));
         int node, neighbor, ctr;
 
         for (ctr = 0, node = src, enqueue(node, &queue); !isEmpty(queue); dequeue(&queue), node = front(queue)) {
