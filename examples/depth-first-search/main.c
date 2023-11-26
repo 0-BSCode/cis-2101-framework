@@ -1,4 +1,4 @@
-#include "modules/recursive/v1/_header.h"
+#include "modules/iterative/v1/_header.h"
 
 int main() {
     int matrix[MAX][MAX] = {
