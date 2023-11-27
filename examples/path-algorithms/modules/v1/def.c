@@ -39,6 +39,53 @@ int* dijkstra(MATRIX matrix, int src) {
     return cost;
 }
 
+void floyd(MATRIX res, MATRIX cost) {
+    int i, j, k;
+    for (i = 0; i < MAX; i++) {
+        for (j = 0; j < MAX; j++) {
+            res[i][j] = cost[i][j];
+        }
+    }
+
+    for (i = 0; i < MAX; i++) {
+        res[i][i] = 0;
+    }
+
+    for (k = 0; k < MAX; k++) {
+        for (i = 0; i < MAX; i++) {
+            for (j = 0; j < MAX; j++) {
+                if (res[i][k] != INF && res[k][j] != INF && res[i][k] + res[k][j] < res[i][j]) {
+                    res[i][j] = res[i][k] + res[k][j];
+                }
+            }
+        }
+    }
+}
+
+void warshall(MATRIX res, MATRIX costs) {
+    int i, j, k;
+
+    for (i = 0; i < MAX; i++) {
+        for (j = 0; j < MAX; j++) {
+            res[i][j] = costs[i][j] == INF ? 0 : 1;
+        }
+    }
+
+    for (i = 0; i < MAX; i++) {
+        res[i][i] = 1;
+    }
+
+    for (k = 0; k < MAX; k++) {
+        for (i = 0; i < MAX; i++) {
+            for (j = 0; j < MAX; j++) {
+                if (res[i][j] == 0) {
+                    res[i][j] = res[i][k] && res[k][j];
+                }
+            }
+        }
+    }
+}
+
 void printMatrix(MATRIX matrix) {
     int i, j;
 
