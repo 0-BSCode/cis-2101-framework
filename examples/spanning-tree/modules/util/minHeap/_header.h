@@ -1,7 +1,7 @@
 #ifndef PRIORITYQUEUE_HEAP
 #define PRIORITYQUEUE_HEAP
 
-#define HEAP_MAX 15
+#define HEAP_MAX 100
 
 typedef struct {
     int from;

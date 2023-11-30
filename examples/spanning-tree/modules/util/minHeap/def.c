@@ -7,7 +7,9 @@ void initialize(HEAP *H) {
 }
 
 void insert(HEAP *H, Edge data) {
-    if (H->lastIdx < HEAP_MAX - 1) {
+    if (H->lastIdx >= HEAP_MAX - 1) {
+        printf("HEAP IS FULL\n");
+    } else {
         H->edges[++H->lastIdx] = data;
         int idx;
 
@@ -54,6 +56,7 @@ void displayHeap(HEAP H) {
 
     printf("----- HEAP -----\n");
     for (ctr = 0; ctr <= H.lastIdx; ctr++) {
+        printf("IDX: %d\n", ctr);
         displayEdge(H.edges[ctr]);
     }
     printf("----------------\n");

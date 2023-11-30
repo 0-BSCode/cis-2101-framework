@@ -1,7 +1,7 @@
 #ifndef SPANNINGTREE_V1
 #define SPANNINGTREE_V1
 
-#define MAX 5
+#define MAX 6
 #define INF __INT_MAX__
 
 typedef int MATRIX[][MAX];
