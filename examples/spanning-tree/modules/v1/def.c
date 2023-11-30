@@ -39,10 +39,13 @@ int kruskal(MATRIX matrix) {
     HEAP heap;
     initialize(&heap);
 
+    // Values are components that vertex is part of
+    // Initially, each vertex is its own component
     for (from = 0; from < MAX; from++) {
         components[from] = from;
     }
 
+    // Build min heap containing all edges
     for (from = 0; from < MAX; from++) {
         for (to = 0; to < MAX; to++) {
             if (matrix[from][to] != INF) {
@@ -56,12 +59,17 @@ int kruskal(MATRIX matrix) {
     }
 
     int compNum;
+    // Stop when number of components is 1
     for (compNum = MAX, data = deleteMin(&heap); compNum > 1; data = deleteMin(&heap)) {
         from = data.path.from;
         to = data.path.to;
 
+        // Edge joins two vertices from different components
         if (components[from] != components[to]) {
             res += data.cost;
+
+            // Merge `to` component vertices into the
+            // `from` component
             int ctr;
             for (ctr = 0; ctr < MAX; ctr++) {
                 if (components[ctr] == components[to]) {
