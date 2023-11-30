@@ -33,6 +33,9 @@ int prim(MATRIX matrix, int src) {
 
     return res;
 }
+
+// TODO: Optimize (merging components takes O(V) time
+// and we do this V times)
 int kruskal(MATRIX matrix) {
     int res = 0, components[MAX] = {0}, from, to;
     Edge data;
