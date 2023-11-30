@@ -29,9 +29,11 @@ int main() {
         {INF, INF, 4, INF, 1, INF},
     }; // 20
 
-    int minCost;
-    minCost = prim(m1, 0);
-    printf("Minimum cost: %d\n", minCost);
+    int mcP, mcK;
+    mcP = prim(m3, 0);
+    printf("Prim minimum cost: %d\n", mcP);
 
+    mcK = kruskal(m3);
+    printf("Kruskal minimum cost: %d\n", mcK);
     return 0;
 }

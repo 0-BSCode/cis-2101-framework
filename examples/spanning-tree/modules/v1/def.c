@@ -34,5 +34,43 @@ int prim(MATRIX matrix, int src) {
     return res;
 }
 int kruskal(MATRIX matrix) {
-    
+    int res = 0, components[MAX] = {0}, from, to;
+    Edge data;
+    HEAP heap;
+    initialize(&heap);
+
+    for (from = 0; from < MAX; from++) {
+        components[from] = from;
+    }
+
+    for (from = 0; from < MAX; from++) {
+        for (to = 0; to < MAX; to++) {
+            if (matrix[from][to] != INF) {
+                data.cost = matrix[from][to];
+                data.path.from = from;
+                data.path.to = to;
+                insert(&heap, data);
+            }
+
+        }
+    }
+
+    int compNum;
+    for (compNum = MAX, data = deleteMin(&heap); compNum > 1; data = deleteMin(&heap)) {
+        from = data.path.from;
+        to = data.path.to;
+
+        if (components[from] != components[to]) {
+            res += data.cost;
+            int ctr;
+            for (ctr = 0; ctr < MAX; ctr++) {
+                if (components[ctr] == components[to]) {
+                    components[ctr] = components[from];
+                }
+            }
+            compNum--;
+        }
+    }
+
+    return res;
 }
