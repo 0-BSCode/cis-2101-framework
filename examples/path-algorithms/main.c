@@ -35,7 +35,7 @@ int main() {
 
     // DIJKSTRA'S
     printMatrix(m1);
-    int *minCosts = dijkstra(m1, 1);
+    int *minCosts = dijkstra(m1, 0);
     printArray(minCosts);
 
     // FLOYD'S

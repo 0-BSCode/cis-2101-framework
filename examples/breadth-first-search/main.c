@@ -1,4 +1,4 @@
-#include "modules/iterative/v1/_header.h"
+#include "modules/iterative/v2/_header.h"
 
 int main() {
     int matrix[MAX][MAX] = {
@@ -7,7 +7,7 @@ int main() {
         {1, 0, 0, 0, 1},
         {0, 0, 1, 0, 1},
         {0, 0, 0, 0, 0}
-    };
+    }; // 0 1 4 3 2
 
     int matrix2[MAX][MAX] = {
         {0, 1, 1, 0, 0},

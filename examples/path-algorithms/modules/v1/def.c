@@ -3,7 +3,6 @@
 #include <stdlib.h>
 
 int* dijkstra(MATRIX matrix, int src) {
-    // Initialize costs
     int *cost = (int *)calloc(MAX, sizeof(int));
 
     // Initialize set to track visited nodes
@@ -12,22 +11,30 @@ int* dijkstra(MATRIX matrix, int src) {
     if (cost != NULL && visited != NULL) {
         int ctr;
 
+        // Initial cost to get to each node from src
         for (ctr = 0; ctr < MAX; ctr++) {
             cost[ctr] = ctr == src ? 0 : INF;
         }
 
+        // currTail = current tail we're considering
+        // head = vertices we can get to from currTail
+        // nextTail = next tail we'll consider
+        // currCost = cost to get from currTail to an unvisited head
+        // minCost = smallest cost path from currTail to an unvisited head
         int currTail, head, nextTail, currCost, minCost;
         for (currTail = src, nextTail = src, minCost = INF; visited[currTail] != 1; currTail = nextTail, minCost = INF) {
             visited[currTail] = 1;
             for (head = 0; head < MAX; head++) {
                 // Prevent integer overflows
-                if (cost[currTail] != INF && matrix[currTail][head] != INF) {
-                    currCost = cost[currTail] + matrix[currTail][head];
-                } else {
-                    currCost = INF;
+                currCost = cost[currTail] == INF || matrix[currTail][head] == INF ? INF : cost[currTail] + matrix[currTail][head];
+
+                // Update cost to get to a head
+                // if we found a cheaper path to it
+                if (currCost < cost[head]) {
+                    cost[head] = currCost;
                 }
-                cost[head] = currCost < cost[head] ? currCost : cost[head];
                 
+                // Update cheapest path and next node to visit
                 if (cost[head] < minCost && visited[head] == 0) {
                     nextTail = head;
                     minCost = cost[head];
@@ -93,7 +100,7 @@ void printMatrix(MATRIX matrix) {
     for (i = 0; i < MAX; i++) {
         printf("[ ");
         for (j = 0; j < MAX; j++) {
-            printf("%15d ", matrix[i][j]);
+            printf("%11d ", matrix[i][j]);
         }
         printf("]\n");
     }
@@ -103,7 +110,7 @@ void printArray(int* array) {
     printf("\n----- ARRAY -----\n");
     printf("[ ");
     for (i = 0; i < MAX; i++) {
-        printf("%15d ", array[i]);
+        printf("%11d ", array[i]);
     }
     printf("]\n");
 }
