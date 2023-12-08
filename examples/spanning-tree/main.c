@@ -1,4 +1,4 @@
-#include "modules/v2/_header.h"
+#include "modules/v3/_header.h"
 #include <stdio.h>
 
 int main() {
@@ -29,11 +29,20 @@ int main() {
         {INF, INF, 4, INF, 1, INF},
     }; // 20
 
+    MATRIX m4 = {
+        {INF, INF, INF, INF, INF, INF},
+        {INF, INF, INF, INF, INF, INF},
+        {INF, INF, INF, INF, INF, INF},
+        {INF, INF, INF, INF, INF, INF},
+        {INF, INF, INF, INF, INF, INF},
+        {INF, INF, INF, INF, INF, INF},
+    }; // 20
+
     int mcP, mcK;
-    mcP = prim(m3, 0);
+    mcP = prim(m1, 0);
     printf("Prim minimum cost: %d\n", mcP);
 
-    mcK = kruskal(m3);
+    mcK = kruskal(m1);
     printf("Kruskal minimum cost: %d\n", mcK);
     return 0;
 }
