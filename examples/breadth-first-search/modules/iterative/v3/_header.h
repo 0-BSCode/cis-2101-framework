@@ -1,5 +1,5 @@
-#ifndef BFS_ITERATIVE_V2
-#define BFS_ITERATIVE_V2
+#ifndef BFS_ITERATIVE_V3
+#define BFS_ITERATIVE_V3
 
 #define MAX 5
 typedef int MATRIX[MAX][MAX];

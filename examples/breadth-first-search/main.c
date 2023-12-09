@@ -1,40 +1,60 @@
-#include "modules/iterative/v2/_header.h"
+#include "modules/iterative/v3/_header.h"
 
 int main() {
-    int matrix[MAX][MAX] = {
+    int m1[MAX][MAX] = {
         {0, 1, 0, 1, 1},
         {0, 0, 1, 0, 0},
         {1, 0, 0, 0, 1},
         {0, 0, 1, 0, 1},
         {0, 0, 0, 0, 0}
-    }; // 0 1 4 3 2
+    }; 
+    // 0 1 4 3 2
+    // 1 2 0 4 3
+    // 2 0 4 1 3
+    // 3 2 4 0 1
+    // 4 INF INF INF
 
-    int matrix2[MAX][MAX] = {
+    int m2[MAX][MAX] = {
         {0, 1, 1, 0, 0},
         {1, 0, 1, 1, 1},
         {1, 1, 0, 1, 0},
         {0, 1, 1, 0, 1},
         {0, 1, 0, 1, 0}
     };
+    // 0 1 2 3 4
+    // 1 0 2 3 4
+    // 2 0 1 3 4
+    // 3 1 2 4 0
+    // 4 1 3 0 2
 
-    int matrix3[MAX][MAX] = {
+    int m3[MAX][MAX] = {
          {0, 1, 1, 0, 0},
         {1, 0, 1, 1, 0},
         {1, 1, 0, 1, 0},
         {0, 1, 1, 0, 1},
         {0, 0, 0, 1, 0}
      };
+    // 0 1 2 3 4
+    // 1 0 2 3 4
+    // 2 0 1 3 4
+    // 3 1 2 4 0
+    // 4 3 1 2 0
 
-    int matrix4[MAX][MAX] = {
+    int m4[MAX][MAX] = {
         {0, 1, 0, 1, 0},
         {0, 0, 1, 0, 0},
         {0, 0, 0, 1, 0},
         {0, 0, 0, 0, 1},
         {0, 0, 1, 0, 0}
      };
+    // 0 1 3 2 4
+    // 1 2 3 4 -1
+    // 2 3 4 -1 -1
+    // 3 4 2 -1 -1
+    // 4 2 3 -1 -1
 
-    printMatrix(matrix);
-    int *res = BFS(matrix, 0);
+    printMatrix(m4);
+    int *res = BFS(m4, 4);
 
     printArray(res);
 
