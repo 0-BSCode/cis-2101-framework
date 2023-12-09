@@ -18,7 +18,7 @@ int *dijkstra(MATRIX matrix, int src) {
             minCost = INF;
 
             for (neighbor = 0; neighbor < MAX; neighbor++) {
-                currCost = costs[node] == INF || matrix[node][neighbor] == INF ? INF : costs[node] + matrix[node][neighbor];
+                currCost = matrix[node][neighbor] == INF ? INF : costs[node] + matrix[node][neighbor];
                 if (currCost < costs[neighbor]) {
                     costs[neighbor] = currCost;
                 }
