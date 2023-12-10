@@ -5,6 +5,7 @@
 #define OPEN_MAX 5
 #define VH_MAX 15
 #define CLOSE_MAX 5
+#define INF __INT_MAX__
 
 // Matrix implementation
 typedef int MATRIX[MATRIX_MAX][MATRIX_MAX];
@@ -25,14 +26,13 @@ typedef struct {
     int edge;
 } VH_Node;
 
-typedef struct {
+typedef struct heap {
     VH_Node nodes[VH_MAX];
     int avail;
 } *VHeap;
 
 typedef struct {
     int header[CLOSE_MAX];
-    int lastNdx;
     VHeap VH;
 } CURSOR;
 
@@ -41,6 +41,7 @@ typedef struct {
  *********************************************************/
 //---Problem #1 ---
 void displayMatrix(MATRIX matrix);
+void initializeMatrix(MATRIX matrix);
 
 //---Problem #2 ---
 void populateMatrix(MATRIX matrix);
@@ -52,11 +53,16 @@ LIST *convertToList(MATRIX matrix);
 
 //---Problem #4 ---
 void displayVHeap(VHeap VH);
-void displayCursor(CURSOR cursor);
 VHeap initVHeap();
-void initCursor(CURSOR *cursor);
 
 //---Problem #5 ---
-CURSOR convertToCursor(VHeap *VH);
+void displayCursor(CURSOR cursor);
+void initCursor(CURSOR *cursor, VHeap VH);
+
+//---Problem #6 ---
+void convertToCursor(LIST *L, CURSOR *CS);
+
+//---Problem #7 ---
+void convertToMatrix(LIST *L, MATRIX matrix);
 
 #endif
