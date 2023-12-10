@@ -1,43 +1,62 @@
-#include "modules/recursive/v2/_header.h"
+#include "modules/recursive/v3/_header.h"
 
 int main() {
-    int matrix[MAX][MAX] = {
+    int m1[MAX][MAX] = {
         {0, 1, 0, 1, 1},
         {0, 0, 1, 0, 0},
         {1, 0, 0, 0, 1},
         {0, 0, 1, 0, 1},
         {0, 0, 0, 0, 0}
     };
+    // 0 1 2 4 3
+    // 1 2 0 3 4
+    // 2 0 1 3 4
+    // 3 2 0 1 4
+    // 4 -1 -1 -1
 
-    int matrix2[MAX][MAX] = {
+    int m2[MAX][MAX] = {
         {0, 1, 1, 0, 0},
         {1, 0, 1, 1, 1},
         {1, 1, 0, 1, 0},
         {0, 1, 1, 0, 1},
         {0, 1, 0, 1, 0}
     };
+    // 0 1 2 3 4
+    // 1 0 2 3 4
+    // 2 0 1 3 4
+    // 3 1 0 2 4
+    // 4 1 0 2 3
 
-    int matrix3[MAX][MAX] = {
+    int m3[MAX][MAX] = {
          {0, 1, 1, 0, 0},
         {1, 0, 1, 1, 0},
         {1, 1, 0, 1, 0},
         {0, 1, 1, 0, 1},
         {0, 0, 0, 1, 0}
      };
+    // 0 1 2 3 4
+    // 1 0 2 3 4
+    // 2 0 1 3 4
+    // 3 1 0 2 4
+    // 4 3 1 0 2
 
-    int matrix4[MAX][MAX] = {
+    int m4[MAX][MAX] = {
         {0, 1, 0, 1, 0},
         {0, 0, 1, 0, 0},
         {0, 0, 0, 1, 0},
         {0, 0, 0, 0, 1},
         {0, 0, 1, 0, 0}
      };
+    // 0 1 2 3 4
+    // 1 2 3 4 -1
+    // 2 3 4 -1 -1
+    // 3 4 2 -1 -1
+    // 4 2 3 -1 -1
 
-    printMatrix(matrix);
-    int *res = DFS(matrix, 0);
+    printMatrix(m2);
+    int *res = DFS(m2, 1);
 
     printArray(res);
-
 
     return 0;
 }
